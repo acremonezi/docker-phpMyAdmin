@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    container_name: phpmyadmin
+    environment:
+      - PMA_PORT=3306
+      - UPLOAD_LIMIT=300M
+      # - PMA_ARBITRARY=1
+      # - PMA_HOSTS=
+      # - PMA_USER=root
+      #- PMA_ABSOLUTE_URI=https://....
+       
+    volumes:
+      # Data Storage
+      - ./data/phpmyadmin:/sessions
+      
